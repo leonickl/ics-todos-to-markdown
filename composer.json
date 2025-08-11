@@ -1,0 +1,17 @@
+{
+    "name": "leo/geburstag",
+    "autoload": {
+        "psr-4": {
+            "Leo\\Geburstag\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leo Nickl",
+            "email": "leo@leonickl.de"
+        }
+    ],
+    "require": {
+        "sabre/vobject": "^4.5"
+    }
+}
