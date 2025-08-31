@@ -5,7 +5,7 @@ use Sabre\VObject\Reader;
 require __DIR__.'/vendor/autoload.php';
 
 
-$ics = file_get_contents('./geburtstag-2024-02-29.ics');
+$ics = file_get_contents($argv[1]);
 
 $calendar = Reader::read($ics);
 
@@ -36,8 +36,15 @@ foreach ($calendar->VTODO as $vtodo) {
                 'uid' => $childUid,
                 'summary' => $childSummary
             ];
+
+            continue 2;
         }
     }
+
+    $parentChildMap['*'][] = [
+        'uid' => $childUid,
+        'summary' => $childSummary
+    ];
 }
 
 foreach ($parentChildMap as &$children) {
